@@ -2,37 +2,294 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>大阪六天五夜旅行</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 40px 20px;
-      background: #FFFCF6;
-      color: #3E3A39;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    .card {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 30px;
-      border: 3px solid #3E3A39;
-      border-radius: 24px;
-      background: #FFF4E8;
-    }
-    h1 { color: #D97968; }
-    .date { color: #8D7768; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪日和｜六天五夜旅行繪本</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
+
+:root {
+  --paper: #FFFCF6;
+  --ink: #3E3A39;
+  --coral: #D97968;
+  --yellow: #E9BD59;
+  --green: #9BAF96;
+  --pink: #F5DDD5;
+  --blue: #DCE9EC;
+  --brown: #8D7768;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Huninn", "Microsoft JhengHei", sans-serif;
+  line-height: 1.8;
+}
+button, a { font: inherit; }
+button { cursor: pointer; }
+.wrap { max-width: 980px; margin: auto; padding: 0 20px; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 0; border-bottom: 2px dashed #D8CABB;
+}
+.logo { color: var(--coral); font-size: 22px; font-weight: bold; }
+.tag { border: 2px solid var(--ink); border-radius: 30px; padding: 3px 12px; font-size: 12px; }
+.hero { padding: 42px 0 28px; text-align: center; }
+.eyebrow { color: var(--brown); letter-spacing: 3px; font-size: 13px; }
+h1 { font-size: clamp(34px, 7vw, 60px); line-height: 1.3; margin: 12px 0; }
+h1 span { color: var(--coral); }
+.subtitle { color: var(--brown); }
+.hero-art {
+  background: #FFF3E5; border: 3px solid var(--ink);
+  border-radius: 30px; padding: 15px; margin: 25px auto;
+  max-width: 760px; overflow: hidden;
+}
+.hero-art svg { width: 100%; height: auto; display: block; }
+.info-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.pill { border: 2px solid var(--ink); border-radius: 30px; padding: 5px 14px; background: white; font-size: 13px; }
+.section-title { font-size: 25px; margin: 38px 0 15px; }
+.section-title small { display: block; font-size: 12px; color: var(--brown); font-weight: normal; }
+.day-tabs { display: grid; grid-template-columns: repeat(6,1fr); gap: 8px; }
+.day-btn {
+  border: 2px solid var(--ink); border-radius: 17px; background: white;
+  padding: 12px 3px; color: var(--ink); transition: .2s;
+}
+.day-btn b { display: block; font-size: 20px; }
+.day-btn small { font-size: 11px; }
+.day-btn.active { background: var(--yellow); transform: translateY(-3px); box-shadow: 0 4px 0 var(--ink); }
+.day-panel {
+  margin-top: 22px; border: 3px solid var(--ink); border-radius: 25px;
+  overflow: hidden; background: white;
+}
+.day-head { padding: 24px; background: var(--pink); }
+.day-head h2 { margin: 5px 0; font-size: 29px; }
+.day-head p { margin: 0; color: #725B52; }
+.day-sticker { font-size: 42px; float: right; }
+.route { padding: 22px 24px; }
+.stop { display: grid; grid-template-columns: 82px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px dashed #D8CABB; }
+.stop:last-child { border-bottom: none; }
+.time { color: var(--coral); font-weight: bold; font-size: 14px; }
+.stop h3 { margin: 0 0 4px; font-size: 19px; }
+.stop p { margin: 0; color: var(--brown); font-size: 14px; }
+.tip { margin: 0 24px 24px; padding: 15px 18px; border-radius: 16px; background: #FFF3D6; font-size: 14px; }
+.tip strong { color: #9B6D1F; }
+.bottom-nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 15px; }
+.nav-btn { border: 2px solid var(--ink); border-radius: 30px; background: white; padding: 9px 18px; }
+.nav-btn:disabled { opacity: .35; cursor: default; }
+.overview { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.mini { border: 2px solid var(--ink); border-radius: 18px; padding: 15px; background: white; }
+.mini .emoji { font-size: 27px; }
+.mini h3 { margin: 5px 0; font-size: 17px; }
+.mini p { margin: 0; font-size: 13px; color: var(--brown); }
+.note { border: 2px dashed var(--green); border-radius: 20px; padding: 20px; margin: 30px 0; background: #F3F5EC; }
+footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40px; color: var(--brown); font-size: 13px; }
+@media(max-width:600px) {
+  .wrap { padding: 0 14px; }
+  .day-tabs { grid-template-columns: repeat(3,1fr); }
+  .overview { grid-template-columns: repeat(2,1fr); }
+  .stop { grid-template-columns: 66px 1fr; gap: 8px; }
+  .day-head { padding: 18px; }
+  .day-head h2 { font-size: 24px; }
+  .route { padding: 12px 18px; }
+  .tip { margin: 0 18px 18px; }
+}
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>大阪六天五夜 ✈️</h1>
-    <p class="date">2027.01.07 — 2027.01.12</p>
-    <p>我們的關西旅行日記 🇯🇵</p>
-    <p>大阪・京都・奈良・勝尾寺</p>
-    <p>期待一起創造美好的回憶 ♡</p>
+<div class="wrap">
+  <header class="topbar">
+    <div class="logo">✿ 大阪日和</div>
+    <div class="tag">TRAVEL JOURNAL · 2027</div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">OUR LITTLE JAPAN ADVENTURE</div>
+    <h1>關西慢慢走，<br><span>把美好收藏。</span></h1>
+    <div class="subtitle">大阪・京都・奈良・勝尾寺 ／ 兩人旅行手帳</div>
+
+    <div class="hero-art">
+      <svg viewBox="0 0 720 275" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="大阪城、通天閣、富士山與旅行小火車的繪本插畫">
+        <rect x="0" y="0" width="720" height="275" rx="20" fill="#FFF3E5"/>
+        <circle cx="590" cy="52" r="25" fill="#E9BD59"/>
+        <path d="M0 211 Q90 165 180 211 T360 205 T540 205 T720 195 L720 275 L0 275Z" fill="#DDE8D5"/>
+        <path d="M30 208 L75 115 L120 208Z" fill="#B8C9B0"/>
+        <path d="M47 172 L75 115 L103 172Z" fill="#FFFCF6"/>
+        <rect x="228" y="143" width="116" height="79" rx="4" fill="#E9BD59" stroke="#3E3A39" stroke-width="3"/>
+        <path d="M215 143 L286 97 L357 143Z" fill="#D97968" stroke="#3E3A39" stroke-width="3"/>
+        <path d="M238 130 L286 94 L334 130Z" fill="#9BAF96" stroke="#3E3A39" stroke-width="3"/>
+        <path d="M253 116 L286 86 L319 116Z" fill="#D97968" stroke="#3E3A39" stroke-width="3"/>
+        <rect x="252" y="165" width="17" height="20" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+        <rect x="300" y="165" width="17" height="20" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+        <rect x="274" y="190" width="24" height="32" fill="#8D7768"/>
+        <path d="M440 220 L460 100 L480 220Z" fill="#D97968" stroke="#3E3A39" stroke-width="3"/>
+        <rect x="451" y="130" width="18" height="8" fill="#FFFCF6"/>
+        <rect x="446" y="160" width="28" height="8" fill="#FFFCF6"/>
+        <rect x="437" y="191" width="46" height="8" fill="#FFFCF6"/>
+        <path d="M405 220 L405 180 Q405 168 417 168 Q429 168 429 180 L429 220Z" fill="#E9BD59" stroke="#3E3A39" stroke-width="3"/>
+        <path d="M520 226 Q545 202 570 226" fill="none" stroke="#3E3A39" stroke-width="3"/>
+        <circle cx="545" cy="201" r="12" fill="#D97968" stroke="#3E3A39" stroke-width="3"/>
+        <path d="M540 213 L530 237 L558 237 L550 213Z" fill="#D97968" stroke="#3E3A39" stroke-width="3"/>
+        <path d="M130 60 Q145 48 160 60 M145 45 L145 75 M130 60 L160 60" stroke="#D97968" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M365 50 Q375 38 385 50 Q400 35 411 50 Q430 53 420 65 L365 65 Q355 58 365 50" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2"/>
+        <text x="65" y="246" font-size="16" fill="#3E3A39">きょうも いい日</text>
+        <text x="545" y="92" font-size="14" fill="#8D7768">旅のしおり</text>
+      </svg>
+    </div>
+
+    <div class="info-row">
+      <div class="pill">📅 2027.01.07 — 01.12</div>
+      <div class="pill">♡ 2 PEOPLE</div>
+      <div class="pill">🏨 大阪雷本飯店</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">六日旅行日記 <small>選擇一天，看看今天要去哪裡！</small></h2>
+    <div class="day-tabs" id="dayTabs"></div>
+    <div id="dayPanel"></div>
+    <div class="bottom-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">← 前一天</button>
+      <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">下一天 →</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">這趟旅行的小地圖 <small>六天六種風景，慢慢收集回憶。</small></h2>
+    <div class="overview">
+      <div class="mini"><div class="emoji">✈️</div><h3>DAY 1・抵達大阪</h3><p>關西機場、入住飯店、道頓堀散步</p></div>
+      <div class="mini"><div class="emoji">🎢</div><h3>DAY 2・USJ</h3><p>環球影城一整天，玩好玩滿</p></div>
+      <div class="mini"><div class="emoji">⛩️</div><h3>DAY 3・京都</h3><p>清水寺、二年坂、金閣寺</p></div>
+      <div class="mini"><div class="emoji">🦌</div><h3>DAY 4・奈良</h3><p>奈良公園、東大寺、商店街</p></div>
+      <div class="mini"><div class="emoji">🍁</div><h3>DAY 5・勝尾寺</h3><p>達摩祈福、箕面周邊、回大阪</p></div>
+      <div class="mini"><div class="emoji">🛍️</div><h3>DAY 6・回家</h3><p>大阪最後採買、前往關西機場</p></div>
+    </div>
+  </section>
+
+  <div class="note">
+    <strong>☁️ 旅行小提醒</strong><br>
+    ・冬天的關西較冷，記得帶保暖外套與好走的鞋。<br>
+    ・USJ、勝尾寺與京都景點的開放時間、交通班次及預約規則，出發前請再確認官方資訊。<br>
+    ・每日時間是規劃參考，實際交通與停留時間請依當天狀況調整。
   </div>
+
+  <footer>OSAKA BIYORI ♡ 2027<br>願每一段路，都成為喜歡的回憶。</footer>
+</div>
+
+<script>
+const days = [
+{
+ date:"1/7・週四", title:"你好，大阪！", subtitle:"抵達關西・放好行李・開始旅行",
+ emoji:"✈️", color:"#F5DDD5",
+ stops:[
+ ["11:35","抵達關西國際機場","入境、領取行李，預留通關時間。"],
+ ["13:00","前往大阪市區","依飯店位置選擇南海電鐵或 JR 等交通方式。"],
+ ["15:00","飯店入住／寄放行李","大阪雷本飯店，先休息、整理行李。"],
+ ["17:00","道頓堀、心齋橋","散步看招牌、逛街，吃章魚燒或大阪燒。"],
+ ["20:30","回飯店休息","整理隔天 USJ 所需物品，早點睡。"]
+ ],
+ tip:"第一天以順利抵達為主。實際進市區時間會受入境、行李及交通影響。"
+},
+{
+ date:"1/8・週五", title:"環球影城大冒險！", subtitle:"把一整天交給歡樂與魔法",
+ emoji:"🎢", color:"#DCE9EC",
+ stops:[
+ ["06:30","起床、早餐","先查看當日官方開園時間與入園規定。"],
+ ["開園前","前往 USJ","搭乘 JR 前往 Universal City，預留排隊時間。"],
+ ["上午","熱門設施優先","依當日營運安排遊玩；需要的票券先預訂。"],
+ ["中午","園區午餐","可先找好想吃的餐廳，避開最擁擠時段。"],
+ ["下午","主題園區、遊行","依喜好安排任天堂世界等區域，留意整理券規則。"],
+ ["晚上","夜間活動、回大阪","視體力與營運時間離園，返回飯店休息。"]
+ ],
+ tip:"USJ 門票、快速通關與園區入場規則可能變動，請以官方公告為準。週五是平日，但仍建議提早抵達。"
+},
+{
+ date:"1/9・週六", title:"京都，走進古都繪本", subtitle:"清水寺・二年坂・金閣寺",
+ emoji:"⛩️", color:"#F4E6C6",
+ stops:[
+ ["07:00","從大阪出發","搭乘合適的電車前往京都，假日請預留交通時間。"],
+ ["09:00","清水寺","欣賞寺院與京都街景，參觀前確認開放時間。"],
+ ["10:30","二年坂、三年坂","石板小路、傳統町屋與小店散策。"],
+ ["12:00","京都午餐","可安排湯豆腐、蕎麥麵或京都風料理。"],
+ ["13:30","前往金閣寺","搭乘巴士或電車轉乘，交通時間依路況調整。"],
+ ["15:00","金閣寺","欣賞金色寺院與庭園，預留參觀時間。"],
+ ["傍晚","返回大阪","依體力安排晚餐與休息。"]
+ ],
+ tip:"清水寺與金閣寺分處不同區域，當天可以安排，但移動時間較長；週六人潮較多，建議早出門。"
+},
+{
+ date:"1/10・週日", title:"奈良的小鹿日記", subtitle:"與鹿相遇・東大寺・古都散步",
+ emoji:"🦌", color:"#E4EBD9",
+ stops:[
+ ["08:00","從大阪出發","搭乘近鐵或 JR 前往奈良，依住宿位置選擇路線。"],
+ ["09:30","奈良公園","慢慢散步、欣賞鹿群，餵鹿時請遵守現場指引。"],
+ ["11:00","東大寺","參觀大佛殿及周邊寺院，確認當日開放時間。"],
+ ["12:30","奈良午餐","可品嚐柿葉壽司、烏龍麵或當地料理。"],
+ ["14:00","春日大社周邊","森林步道與神社參道散策，依體力取捨。"],
+ ["15:30","奈良町、商店街","逛小店、買伴手禮，喝杯咖啡再回大阪。"],
+ ["傍晚","返回大阪","晚餐可安排難波或飯店附近。"]
+ ],
+ tip:"不要追逐或拉扯鹿，也不要把鹿仙貝拿在手上逗弄太久。週日人潮可能較多。"
+},
+{
+ date:"1/11・週一", title:"勝尾寺的達摩祈願", subtitle:"山中寺院・紅色達摩・好運收藏",
+ emoji:"🍁", color:"#F5DDD5",
+ stops:[
+ ["07:30","早餐後出發","先確認勝尾寺當日開放時間及交通方式。"],
+ ["上午","前往勝尾寺","通常需搭乘電車再轉巴士或計程車，班次請事先查詢。"],
+ ["10:00","勝尾寺參拜","尋找各處達摩、參觀庭園與寺院。"],
+ ["12:00","午餐、休息","依交通與現場餐飲選擇用餐地點。"],
+ ["下午","箕面周邊／返回大阪","依當日交通與體力安排；不必勉強塞入太多景點。"],
+ ["傍晚","大阪自由活動","採買伴手禮、吃晚餐，整理行李。"]
+ ],
+ tip:"勝尾寺位於山區，冬季可能寒冷。巴士班次、入場預約及交通方式請在出發前重新確認。"
+},
+{
+ date:"1/12・週二", title:"把回憶裝進行李", subtitle:"大阪最後散步・平安回家",
+ emoji:"🧳", color:"#DCE9EC",
+ stops:[
+ ["08:00","早餐、整理行李","確認護照、機票、購物物品及退房時間。"],
+ ["上午","大阪市區自由活動","可在飯店附近或難波一帶吃早餐、最後採買。"],
+ ["12:00","午餐、取回行李","不要把購物安排得太遠，保留回程緩衝。"],
+ ["14:30","前往關西機場","依飯店位置、交通班次及行李狀況提早出發。"],
+ ["16:00","抵達機場辦理報到","回程班機 19:00，預留報到、安檢與出境時間。"],
+ ["19:00","關西機場起飛","帶著滿滿的關西回憶回台灣。"]
+ ],
+ tip:"回程航班為 19:00，建議提早抵達機場；實際出發時間請依交通工具與航空公司報到規定確認。"
+}
+];
+
+let current = 0;
+function render() {
+  document.getElementById("dayTabs").innerHTML = days.map((d,i) =>
+    `<button class="day-btn ${i===current?'active':''}" onclick="selectDay(${i})" aria-pressed="${i===current}">
+      <b>DAY ${i+1}</b><small>${d.date}</small></button>`
+  ).join("");
+
+  const d = days[current];
+  document.getElementById("dayPanel").innerHTML = `
+    <div class="day-panel">
+      <div class="day-head" style="background:${d.color}">
+        <span class="day-sticker">${d.emoji}</span>
+        <div>${d.date}</div>
+        <h2>${d.title}</h2>
+        <p>${d.subtitle}</p>
+      </div>
+      <div class="route">
+        ${d.stops.map(s=>`<div class="stop">
+          <div class="time">${s[0]}</div>
+          <div><h3>${s[1]}</h3><p>${s[2]}</p></div>
+        </div>`).join("")}
+      </div>
+      <div class="tip"><strong>✎ 旅行筆記</strong><br>${d.tip}</div>
+    </div>`;
+  document.getElementById("prevBtn").disabled = current===0;
+  document.getElementById("nextBtn").disabled = current===days.length-1;
+}
+function selectDay(i) { current=i; render(); }
+function changeDay(step) { current=Math.max(0,Math.min(days.length-1,current+step)); render(); }
+render();
+</script>
 </body>
 </html>
