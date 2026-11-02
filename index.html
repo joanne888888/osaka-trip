@@ -152,6 +152,10 @@ html {
   overflow: visible;
 }
 
+    /* 回程飛機反向飛行 */
+.return .flight-art svg {
+  transform: scaleX(-1);
+}
 .flight-cloud {
   position: absolute;
   z-index: 1;
@@ -422,7 +426,7 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
           <path d="M8 90 Q55 48 100 75 T230 42"
                 fill="none" stroke="#EFC66F" stroke-width="4"
                 stroke-dasharray="9 9" stroke-linecap="round"/>
-         <g transform="translate(120 58) scale(-1 1) rotate(15)">
+         <g transform="translate(120 58) rotate(-15)">
             <path d="M-76 2 L-12 -7 L23 -39 Q31 -45 35 -39
                      L18 -5 L76 5 Q85 9 76 14 L15 12
                      L-2 42 Q-7 48 -12 41 L-8 12 L-76 9
