@@ -110,8 +110,21 @@ html {
 }
 
 .flight-route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
   font-size: 27px;
   color: #C77F68;
+}
+
+.flight-route::before,
+.flight-route::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #C77F68;
 }
 
 @media (max-width: 600px) {
@@ -252,7 +265,7 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
     </div>
     <div class="flight-middle">
       <span class="flight-duration">飛行時間 2小時30分</span>
-      <div class="flight-route">✈️ ───────</div>
+      <div class="flight-route">✈️</div>
     </div>
     <div class="flight-point">
       <strong>11:35</strong>
@@ -269,7 +282,7 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
     </div>
     <div class="flight-middle">
       <span class="flight-duration">飛行時間 3小時25分</span>
-      <div class="flight-route">✈️ ───────</div>
+      <div class="flight-route">✈️</div>
     </div>
     <div class="flight-point">
       <strong>21:35</strong>
