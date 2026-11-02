@@ -304,10 +304,21 @@ function render() {
         <p>${d.subtitle}</p>
       </div>
       <div class="route">
-        ${d.stops.map(s=>`<div class="stop">
-          <div class="time">${s[0]}</div>
-          <div><h3>${s[1]}</h3><p>${s[2]}</p></div>
-        </div>`).join("")}
+      
+${d.stops.map(s=>`<div class="stop">
+  <div class="time">${s[0]}</div>
+  <div>
+    <h3>${s[1]}</h3>
+    <p>${s[2]}</p>
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s[1])}"
+      target="_blank"
+      rel="noopener noreferrer"
+      style="display:inline-block;margin-top:8px;padding:6px 12px;background:#F5DDD5;color:#3E3A39;border-radius:20px;text-decoration:none;font-size:13px;"
+    >📍 Google Maps 導航</a>
+  </div>
+</div>`).join("")}
+
       </div>
       <div class="tip"><strong>✎ 旅行筆記</strong><br>${d.tip}</div>
     </div>`;
