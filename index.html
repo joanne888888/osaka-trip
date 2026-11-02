@@ -36,7 +36,37 @@
 html {
   scroll-behavior: smooth;
 }
+/* 航班資訊卡片 */
+.flight-info {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 24px;
+  background: #FFF4E8;
+  border: 3px solid #3E3A39;
+  border-radius: 24px;
+  text-align: center;
+}
 
+.flight-info h2 {
+  margin-bottom: 20px;
+  color: #3E3A39;
+}
+
+.flight-info div {
+  margin: 12px 0;
+  padding: 16px;
+  background: #FFFCF6;
+  border: 2px solid #3E3A39;
+  border-radius: 16px;
+}
+
+.flight-info h3 {
+  margin-bottom: 10px;
+}
+
+.flight-info p {
+  margin: 6px 0;
+}
 @import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
 
 :root {
@@ -140,6 +170,19 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
   <a href="#todo">☑️ 出發待辦</a>
   <a href="#hotel">🏨 住宿資訊</a>
 </nav>
+  <section id="flights" class="flight-info">
+  <h2>✈️ 航班資訊</h2>
+  <div>
+    <h3>去程｜1月7日</h3>
+    <p>08:05 桃園國際機場 T2</p>
+    <p>11:35 關西國際機場 T1</p>
+  </div>
+  <div>
+    <h3>回程｜1月12日</h3>
+    <p>19:00 關西國際機場 T1</p>
+    <p>21:35 桃園國際機場 T2</p>
+  </div>
+</section>
   <section class="hero">
     <div class="eyebrow">OUR LITTLE JAPAN ADVENTURE</div>
     <h1>關西慢慢走，<br><span>把美好收藏。</span></h1>
