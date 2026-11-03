@@ -1345,7 +1345,203 @@ footer {
     padding: 20px 0 12px;
   }
 }
-  
+
+   /* ==================================
+   日系手繪繪本風｜全站視覺統一
+================================== */
+
+/* 紙張背景 */
+body {
+  background-color: #FFFCF6;
+  background-image:
+    radial-gradient(#EADBCB 0.8px, transparent 0.8px);
+  background-size: 18px 18px;
+}
+
+/* 全站標題 */
+.logo,
+h1,
+h2,
+h3,
+.section-title {
+  font-family: "Huninn", "Microsoft JhengHei", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* 快速選單：手繪橢圓貼紙 */
+.quick-nav a {
+  border: 2px solid #594B43;
+  border-radius: 48% 52% 45% 55% / 52% 45% 55% 48%;
+  background: #F8E2D9;
+  box-shadow: 2px 3px 0 #E8D2C5;
+  transform: rotate(-1deg);
+}
+
+.quick-nav a:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+/* 航班資訊：不規則手繪框 */
+.flight-illustration {
+  border: 3px solid #F3B5A8;
+  border-radius: 5% 4% 6% 4% / 8% 6% 7% 5%;
+  box-shadow: 3px 4px 0 rgba(220,145,125,.16);
+  background-image:
+    radial-gradient(rgba(231,180,160,.13) .7px, transparent .7px);
+  background-size: 12px 12px;
+}
+
+.flight-illustration.return {
+  border-color: #F2C879;
+  background-color: #FFFAEF;
+}
+
+/* 內側手繪虛線 */
+.flight-illustration::before {
+  inset: 7px;
+  border: 2px dashed rgba(231,151,137,.5);
+  border-radius: 5% 4% 6% 4% / 8% 6% 7% 5%;
+}
+
+/* 日期標籤 */
+.flight-date-tag {
+  border-radius: 35% 45% 32% 42% / 45% 35% 48% 38%;
+  transform: rotate(-4deg);
+  box-shadow: 3px 4px 0 rgba(220,145,125,.15);
+}
+
+/* 飛行時間 */
+.flight-duration-bubble {
+  border-radius: 48% 52% 46% 54% / 48% 45% 55% 52%;
+  border-style: dashed;
+}
+
+/* 飛機周圍的裝飾 */
+.flight-cloud {
+  filter: drop-shadow(1px 2px 1px rgba(100,140,150,.15));
+}
+
+/* 首頁插畫框 */
+.hero-art {
+  border: 3px solid #594B43;
+  border-radius: 35px 28px 38px 30px;
+  background: #FFF3E5;
+  box-shadow: 4px 5px 0 #EADBCB;
+  transform: rotate(-.3deg);
+}
+
+/* 六天日期按鈕 */
+.day-btn {
+  border: 2px solid #594B43;
+  border-radius: 22px 17px 20px 16px;
+  box-shadow: 2px 3px 0 #E8DCCF;
+  transform: rotate(-.5deg);
+  background: #FFFEFA;
+}
+
+.day-btn:nth-child(even) {
+  transform: rotate(.5deg);
+}
+
+.day-btn.active {
+  background: #F3C85F;
+  box-shadow: 3px 4px 0 #594B43;
+  transform: rotate(-1deg) translateY(-2px);
+}
+
+/* 每日行程大卡片 */
+.day-panel {
+  border: 3px solid #594B43;
+  border-radius: 28px 23px 30px 25px;
+  box-shadow: 4px 5px 0 rgba(141,119,104,.15);
+  background: #FFFEFA;
+}
+
+/* 每日標題區 */
+.day-head {
+  background: #F5DDD5;
+  border-bottom: 2px dashed #D8BBAA;
+}
+
+/* 每個行程項目 */
+.stop {
+  border-bottom: 2px dashed #E8CDBB;
+}
+
+/* 時間標籤 */
+.time {
+  display: inline-block;
+  width: fit-content;
+  padding: 5px 10px;
+  background: #FFF0E8;
+  border: 1.5px dashed #E99B89;
+  border-radius: 13px 10px 14px 11px;
+  transform: rotate(-2deg);
+}
+
+/* 景點名稱：手繪底線 */
+.stop h3 {
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+}
+
+.stop h3::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -5px;
+  bottom: 2px;
+  height: 7px;
+  background: #F9D982;
+  border-radius: 50%;
+  transform: rotate(-1.5deg);
+  z-index: -1;
+  opacity: .75;
+}
+
+/* Google Maps 導航連結 */
+.stop a {
+  border: 1.5px dashed #E7B5A6;
+  border-radius: 18px 14px 19px 15px;
+  box-shadow: 2px 3px 0 rgba(220,145,125,.12);
+}
+
+/* 旅行筆記 */
+.tip {
+  border: 2px dashed #B5C4A9;
+  border-radius: 20px 16px 22px 18px;
+  background: #F5F6EC;
+}
+
+/* 上下頁按鈕 */
+.nav-btn {
+  border: 2px solid #594B43;
+  border-radius: 22px 18px 24px 17px;
+  box-shadow: 2px 3px 0 #E8DCCF;
+}
+
+/* 住宿、出發待辦等資訊小卡 */
+.mini {
+  border: 2px solid #594B43;
+  border-radius: 20px 16px 22px 18px;
+  box-shadow: 2px 3px 0 #E8DCCF;
+}
+
+/* 手機版保留適當間距 */
+@media (max-width: 600px) {
+  .flight-illustration {
+    border-radius: 28px 23px 30px 25px;
+  }
+
+  .day-panel {
+    border-radius: 22px;
+  }
+
+  .hero-art {
+    border-radius: 24px;
+  }
+}
 </style>
 
 </head>
