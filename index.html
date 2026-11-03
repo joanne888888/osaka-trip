@@ -5,69 +5,109 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>大阪日和｜六天五夜旅行繪本</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
-  /* 快速選單 */
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
+
+/* =========================
+   全站色彩與基本設定
+========================= */
+:root {
+  --paper: #FFFCF6;
+  --ink: #3E3A39;
+  --coral: #D97968;
+  --yellow: #E9BD59;
+  --green: #9BAF96;
+  --pink: #F5DDD5;
+  --blue: #DCE9EC;
+  --brown: #8D7768;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(#E9DCCB 0.65px, transparent 0.65px);
+  background-size: 13px 13px;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "Huninn", "Microsoft JhengHei", sans-serif;
+  line-height: 1.65;
+}
+
+button, a { font: inherit; }
+button { cursor: pointer; }
+
+.wrap {
+  max-width: 1080px;
+  margin: auto;
+  padding: 0 22px;
+}
+
+/* =========================
+   快速選單
+========================= */
 .quick-nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 20px auto;
+  gap: 10px;
+  margin: 12px auto 20px;
   padding: 0 12px;
 }
 
 .quick-nav a {
   display: inline-block;
-  padding: 10px 18px;
+  padding: 9px 19px;
   background: #F5DDD5;
-  color: #3E3A39;
-  border: 2px solid #3E3A39;
-  border-radius: 25px;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 42% 48% 44% 50% / 48% 45% 52% 48%;
   text-decoration: none;
   font-size: 15px;
-  transition: 0.2s;
+  box-shadow: 2px 3px 0 rgba(62,58,57,.12);
+  transition: .2s;
 }
 
 .quick-nav a:hover {
   background: #F5D47A;
-  transform: translateY(-2px);
+  transform: translateY(-3px) rotate(-2deg);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-
-
-/* 日系手繪航班資訊｜整合版 */
+/* =========================
+   航班資訊
+========================= */
 .flight-info {
   width: calc(100% - 32px);
-  max-width: 1000px;
-  margin: 35px auto;
-  padding: 8px 0;
+  max-width: 1120px;
+  margin: 18px auto;
+  padding: 0;
 }
 
 .flight-illustration {
   position: relative;
-  min-height: 205px;
-  margin: 30px 0;
-  padding: 24px 28px 18px;
+  min-height: 190px;
+  margin: 19px 0;
+  padding: 20px 25px 15px;
   border: 4px solid #F5B9AD;
-  border-radius: 58px 43px 54px 47px / 44px 56px 43px 52px;
+  border-radius: 6% 4% 5% 4% / 15% 17% 14% 16%;
   background: #FFF7F1;
-  box-shadow: 3px 4px 0 rgba(220,145,125,.13);
+  box-shadow:
+    3px 4px 0 rgba(220,145,125,.16),
+    7px 7px 0 rgba(220,145,125,.06);
   overflow: hidden;
-  box-sizing: border-box;
 }
 
-/* 內側手繪虛線框 */
+/* 不規則手繪內框 */
 .flight-illustration::before {
   content: "";
   position: absolute;
   inset: 6px;
-  border: 1.5px dashed rgba(231,151,137,.35);
-  border-radius: 50px 42px 48px 40px;
+  border: 2px dashed rgba(231,151,137,.42);
+  border-radius: 5% 4% 6% 5% / 13% 15% 12% 14%;
   pointer-events: none;
   z-index: 1;
 }
@@ -82,33 +122,36 @@ html {
   background: #FFFAEF;
 }
 
+/* 日期手繪色塊 */
 .flight-date-tag {
   position: absolute;
-  top: 15px;
+  top: 12px;
   left: 6%;
   z-index: 4;
-  padding: 9px 25px;
-  border-radius: 28px 23px 30px 21px;
+  padding: 8px 23px;
+  border-radius: 18px 28px 20px 25px;
   background: #F58F80;
   color: white;
   font-size: 22px;
   font-weight: bold;
   transform: rotate(-4deg);
-  box-shadow: 3px 4px 0 rgba(220,145,125,.15);
+  box-shadow: 3px 4px 0 rgba(220,145,125,.18);
 }
 
 .return .flight-date-tag {
   background: #F6CC83;
   color: #59483F;
+  transform: rotate(-3deg);
 }
 
+/* 飛行時間標籤 */
 .flight-duration-bubble {
   position: absolute;
-  top: 8px;
+  top: 7px;
   left: 50%;
   z-index: 4;
   transform: translateX(-50%) rotate(-2deg);
-  padding: 8px 20px;
+  padding: 7px 19px;
   border: 2.5px dashed #F0AFA0;
   border-radius: 48% 52% 46% 54% / 48% 45% 55% 52%;
   background: #FFF8EE;
@@ -125,14 +168,15 @@ html {
   background: #FFF7E7;
 }
 
+/* 航班三欄配置 */
 .flight-content {
   position: relative;
   z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  min-height: 155px;
-  padding-top: 32px;
+  min-height: 150px;
+  padding-top: 27px;
   text-align: center;
 }
 
@@ -140,7 +184,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   color: #59463D;
 }
 
@@ -149,18 +193,19 @@ html {
   display: inline-block;
   font-size: 38px;
   font-weight: bold;
-  text-shadow: 1px 1px 0 rgba(255,255,255,.8);
+  text-shadow: 1px 1px 0 white;
+  transform: rotate(-1deg);
 }
 
 .flight-point strong::after {
   content: "";
   position: absolute;
-  left: -5%;
-  right: -5%;
+  left: -7%;
+  right: -7%;
   bottom: 2px;
   height: 9px;
   background: #FFE18A;
-  border-radius: 50%;
+  border-radius: 48% 52% 43% 57%;
   transform: rotate(-2deg);
   z-index: -1;
 }
@@ -173,7 +218,7 @@ html {
 .flight-art {
   width: 100%;
   max-width: 155px;
-  margin: 15px auto 0;
+  margin: 12px auto 0;
 }
 
 .flight-art svg {
@@ -183,13 +228,14 @@ html {
   overflow: visible;
 }
 
+/* 手繪雲朵 */
 .flight-cloud {
   position: absolute;
   z-index: 1;
   width: 72px;
   height: 48px;
   opacity: .98;
-  filter: drop-shadow(1px 2px 0 rgba(100,140,150,.12));
+  filter: drop-shadow(2px 2px 0 rgba(100,140,150,.15));
 }
 
 .flight-cloud svg {
@@ -202,15 +248,16 @@ html {
 .cloud-left {
   top: 35px;
   left: 27%;
-  transform: rotate(-5deg);
+  transform: rotate(-7deg);
 }
 
 .cloud-right {
   top: 48px;
   right: 27%;
-  transform: rotate(5deg) scale(.85);
+  transform: rotate(6deg) scale(.85);
 }
 
+/* 星星與小裝飾 */
 .flight-decoration {
   position: absolute;
   z-index: 2;
@@ -232,18 +279,311 @@ html {
   color: #F5AFA0;
 }
 
-/* 手機版航班卡片 */
+/* =========================
+   頁首
+========================= */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 2px dashed #D8CABB;
+}
+
+.logo {
+  color: var(--coral);
+  font-size: 22px;
+  font-weight: bold;
+  transform: rotate(-1deg);
+}
+
+.tag {
+  border: 2px dashed var(--brown);
+  border-radius: 35% 45% 38% 45%;
+  padding: 3px 12px;
+  font-size: 12px;
+}
+
+/* =========================
+   主視覺
+========================= */
+.hero {
+  padding: 25px 0 18px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--brown);
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: clamp(34px, 7vw, 60px);
+  line-height: 1.3;
+  margin: 8px 0;
+}
+
+h1 span { color: var(--coral); }
+
+.subtitle { color: var(--brown); }
+
+.hero-art {
+  background: #FFF3E5;
+  border: 3px solid var(--ink);
+  border-radius: 28px 35px 25px 32px;
+  padding: 12px;
+  margin: 15px auto;
+  max-width: 760px;
+  overflow: hidden;
+  box-shadow: 4px 4px 0 rgba(62,58,57,.1);
+}
+
+.hero-art svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.info-row {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  border: 2px solid var(--ink);
+  border-radius: 35% 45% 38% 45%;
+  padding: 5px 14px;
+  background: white;
+  font-size: 13px;
+}
+
+/* =========================
+   行程標題與 DAY 按鈕
+========================= */
+.section-title {
+  font-size: 25px;
+  margin: 23px 0 12px;
+  display: inline-block;
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -8px;
+  bottom: 1px;
+  height: 8px;
+  background: rgba(245,212,122,.55);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.section-title small {
+  display: block;
+  font-size: 12px;
+  color: var(--brown);
+  font-weight: normal;
+}
+
+.day-tabs {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 9px;
+}
+
+.day-btn {
+  border: 2px solid var(--ink);
+  border-radius: 16px 19px 15px 18px;
+  background: #FFFEFA;
+  padding: 9px 3px;
+  color: var(--ink);
+  transition: .2s;
+  box-shadow: 2px 3px 0 rgba(62,58,57,.1);
+}
+
+.day-btn:nth-child(even) { transform: rotate(1deg); }
+.day-btn:nth-child(odd) { transform: rotate(-1deg); }
+
+.day-btn b {
+  display: block;
+  font-size: 20px;
+}
+
+.day-btn small { font-size: 11px; }
+
+.day-btn.active {
+  background: var(--yellow);
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 3px 4px 0 var(--ink);
+}
+
+/* =========================
+   每日行程卡片
+========================= */
+.day-panel {
+  position: relative;
+  margin-top: 16px;
+  border: 3px solid var(--ink);
+  border-radius: 23px 28px 22px 26px;
+  overflow: hidden;
+  background: #FFFEFA;
+  box-shadow: 4px 5px 0 rgba(62,58,57,.1);
+}
+
+.day-head {
+  padding: 17px 22px;
+  background: var(--pink);
+  border-bottom: 2px dashed rgba(141,119,104,.4);
+}
+
+.day-head h2 {
+  margin: 3px 0;
+  font-size: 27px;
+  transform: rotate(-1deg);
+}
+
+.day-head p {
+  margin: 0;
+  color: #725B52;
+}
+
+.day-sticker {
+  font-size: 38px;
+  float: right;
+  transform: rotate(8deg);
+}
+
+/* 行程時間軸 */
+.route { padding: 13px 22px; }
+
+.stop {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  gap: 13px;
+  padding: 13px 0;
+  border-bottom: 2px dashed #E4D5C7;
+}
+
+.stop:last-child { border-bottom: none; }
+
+.time {
+  color: var(--coral);
+  font-weight: bold;
+  font-size: 14px;
+  transform: rotate(-2deg);
+}
+
+.stop h3 {
+  margin: 0 0 3px;
+  font-size: 19px;
+}
+
+.stop p {
+  margin: 0;
+  color: var(--brown);
+  font-size: 14px;
+}
+
+.tip {
+  margin: 0 20px 18px;
+  padding: 11px 16px;
+  border: 2px dashed #E5BD6B;
+  border-radius: 17px 20px 16px 19px;
+  background: #FFF3D6;
+  font-size: 14px;
+}
+
+.tip strong { color: #9B6D1F; }
+
+/* =========================
+   上下頁按鈕、行程總覽
+========================= */
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.nav-btn {
+  border: 2px solid var(--ink);
+  border-radius: 30px;
+  background: white;
+  padding: 8px 17px;
+  box-shadow: 2px 3px 0 rgba(62,58,57,.12);
+}
+
+.nav-btn:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+
+.mini {
+  border: 2px solid var(--ink);
+  border-radius: 17px 20px 16px 19px;
+  padding: 12px;
+  background: #FFFEFA;
+  box-shadow: 2px 3px 0 rgba(62,58,57,.1);
+}
+
+.mini:nth-child(even) { transform: rotate(1deg); }
+.mini:nth-child(odd) { transform: rotate(-.5deg); }
+
+.mini .emoji { font-size: 27px; }
+
+.mini h3 {
+  margin: 4px 0;
+  font-size: 17px;
+}
+
+.mini p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--brown);
+}
+
+.note {
+  border: 2px dashed var(--green);
+  border-radius: 18px 22px 17px 20px;
+  padding: 15px;
+  margin: 18px 0;
+  background: #F3F5EC;
+}
+
+footer {
+  text-align: center;
+  border-top: 2px dashed #D8CABB;
+  padding: 18px 0 25px;
+  color: var(--brown);
+  font-size: 13px;
+}
+
+/* =========================
+   手機版
+========================= */
 @media (max-width: 600px) {
+  .wrap { padding: 0 14px; }
+
   .flight-info {
     width: calc(100% - 20px);
-    margin: 20px auto;
-    padding: 3px 0;
+    margin: 15px auto;
   }
 
   .flight-illustration {
     min-height: 165px;
     padding: 18px 8px 12px;
-    margin: 22px 0;
+    margin: 16px 0;
     border-width: 3px;
     border-radius: 38px 30px 35px 28px;
   }
@@ -268,18 +608,14 @@ html {
   }
 
   .flight-content {
-    grid-template-columns: 1fr 0.9fr 1fr;
+    grid-template-columns: 1fr .9fr 1fr;
     min-height: 130px;
     padding-top: 30px;
   }
 
-  .flight-point {
-    gap: 7px;
-  }
+  .flight-point { gap: 7px; }
 
-  .flight-point strong {
-    font-size: 22px;
-  }
+  .flight-point strong { font-size: 22px; }
 
   .flight-point strong::after {
     height: 6px;
@@ -313,9 +649,7 @@ html {
     right: 19%;
   }
 
-  .flight-decoration {
-    font-size: 19px;
-  }
+  .flight-decoration { font-size: 19px; }
 
   .deco-left {
     top: 17px;
@@ -326,95 +660,44 @@ html {
     top: 15px;
     right: 10px;
   }
-}
 
-  --paper: #FFFCF6;
-  --ink: #3E3A39;
-  --coral: #D97968;
-  --yellow: #E9BD59;
-  --green: #9BAF96;
-  --pink: #F5DDD5;
-  --blue: #DCE9EC;
-  --brown: #8D7768;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "Huninn", "Microsoft JhengHei", sans-serif;
-  line-height: 1.8;
-}
-button, a { font: inherit; }
-button { cursor: pointer; }
-.wrap { max-width: 980px; margin: auto; padding: 0 20px; }
-.topbar {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 0; border-bottom: 2px dashed #D8CABB;
-}
-.logo { color: var(--coral); font-size: 22px; font-weight: bold; }
-.tag { border: 2px solid var(--ink); border-radius: 30px; padding: 3px 12px; font-size: 12px; }
-.hero { padding: 42px 0 28px; text-align: center; }
-.eyebrow { color: var(--brown); letter-spacing: 3px; font-size: 13px; }
-h1 { font-size: clamp(34px, 7vw, 60px); line-height: 1.3; margin: 12px 0; }
-h1 span { color: var(--coral); }
-.subtitle { color: var(--brown); }
-.hero-art {
-  background: #FFF3E5; border: 3px solid var(--ink);
-  border-radius: 30px; padding: 15px; margin: 25px auto;
-  max-width: 760px; overflow: hidden;
-}
-.hero-art svg { width: 100%; height: auto; display: block; }
-.info-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.pill { border: 2px solid var(--ink); border-radius: 30px; padding: 5px 14px; background: white; font-size: 13px; }
-.section-title { font-size: 25px; margin: 38px 0 15px; }
-.section-title small { display: block; font-size: 12px; color: var(--brown); font-weight: normal; }
-.day-tabs { display: grid; grid-template-columns: repeat(6,1fr); gap: 8px; }
-.day-btn {
-  border: 2px solid var(--ink); border-radius: 17px; background: white;
-  padding: 12px 3px; color: var(--ink); transition: .2s;
-}
-.day-btn b { display: block; font-size: 20px; }
-.day-btn small { font-size: 11px; }
-.day-btn.active { background: var(--yellow); transform: translateY(-3px); box-shadow: 0 4px 0 var(--ink); }
-.day-panel {
-  margin-top: 22px; border: 3px solid var(--ink); border-radius: 25px;
-  overflow: hidden; background: white;
-}
-.day-head { padding: 24px; background: var(--pink); }
-.day-head h2 { margin: 5px 0; font-size: 29px; }
-.day-head p { margin: 0; color: #725B52; }
-.day-sticker { font-size: 42px; float: right; }
-.route { padding: 22px 24px; }
-.stop { display: grid; grid-template-columns: 82px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px dashed #D8CABB; }
-.stop:last-child { border-bottom: none; }
-.time { color: var(--coral); font-weight: bold; font-size: 14px; }
-.stop h3 { margin: 0 0 4px; font-size: 19px; }
-.stop p { margin: 0; color: var(--brown); font-size: 14px; }
-.tip { margin: 0 24px 24px; padding: 15px 18px; border-radius: 16px; background: #FFF3D6; font-size: 14px; }
-.tip strong { color: #9B6D1F; }
-.bottom-nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 15px; }
-.nav-btn { border: 2px solid var(--ink); border-radius: 30px; background: white; padding: 9px 18px; }
-.nav-btn:disabled { opacity: .35; cursor: default; }
-.overview { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-.mini { border: 2px solid var(--ink); border-radius: 18px; padding: 15px; background: white; }
-.mini .emoji { font-size: 27px; }
-.mini h3 { margin: 5px 0; font-size: 17px; }
-.mini p { margin: 0; font-size: 13px; color: var(--brown); }
-.note { border: 2px dashed var(--green); border-radius: 20px; padding: 20px; margin: 30px 0; background: #F3F5EC; }
-footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40px; color: var(--brown); font-size: 13px; }
-@media(max-width:600px) {
-  .wrap { padding: 0 14px; }
-  .day-tabs { grid-template-columns: repeat(3,1fr); }
+  .hero { padding: 18px 0 12px; }
+
+  .hero-art {
+    margin: 12px auto;
+    padding: 9px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    margin: 18px 0 10px;
+  }
+
+  .day-tabs {
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+  }
+
+  .day-btn { padding: 8px 3px; }
+
   .overview { grid-template-columns: repeat(2,1fr); }
-  .stop { grid-template-columns: 66px 1fr; gap: 8px; }
-  .day-head { padding: 18px; }
+
+  .stop {
+    grid-template-columns: 66px 1fr;
+    gap: 8px;
+    padding: 11px 0;
+  }
+
+  .day-head { padding: 15px 18px; }
+
   .day-head h2 { font-size: 24px; }
-  .route { padding: 12px 18px; }
-  .tip { margin: 0 18px 18px; }
+
+  .route { padding: 10px 18px; }
+
+  .tip { margin: 0 16px 15px; }
 }
 </style>
+
 </head>
 <body>
 <div class="wrap">
