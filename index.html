@@ -159,10 +159,21 @@ html {
 .flight-cloud {
   position: absolute;
   z-index: 1;
-  color: #91B6C5;
-  font-size: 48px;
-  line-height: 1;
-  opacity: 0.9;
+  width: 72px;
+  height: 48px;
+  opacity: 0.95;
+  transform: rotate(-5deg);
+}
+
+.flight-cloud svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.cloud-right {
+  transform: rotate(5deg) scale(0.85);
 }
 
 .cloud-left {
@@ -179,6 +190,23 @@ html {
   position: absolute;
   color: #F6C46F;
   font-size: 27px;
+  text-shadow:
+    1px 1px 0 #E9B76C,
+    -1px 0 0 #FFF0C9;
+  transform: rotate(-12deg);
+}
+
+.deco-left {
+  top: 15px;
+  left: 18px;
+  transform: rotate(-15deg);
+}
+
+.deco-right {
+  top: 14px;
+  right: 22px;
+  transform: rotate(20deg);
+  color: #F5AFA0;
 }
 
 .deco-left {
@@ -248,9 +276,10 @@ html {
     margin-left: -7%;
   }
 
-  .flight-cloud {
-    font-size: 30px;
-  }
+ .flight-cloud {
+  width: 48px;
+  height: 32px;
+}
 
   .deco-left,
   .deco-right {
@@ -364,7 +393,16 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
     <div class="flight-date-tag">去程 1/7</div>
     <div class="flight-duration-bubble">飛行時間<br>約 2 小時 30 分</div>
 
-    <div class="flight-cloud cloud-left">☁</div>
+    <div class="flight-cloud cloud-left">
+  <svg viewBox="0 0 100 65" aria-hidden="true">
+    <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
+      fill="#F7FCFC" stroke="#789BA9" stroke-width="4"
+      stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M24 47 Q36 55 49 47 Q64 56 77 47"
+      fill="none" stroke="#A9CFD8" stroke-width="3"
+      stroke-linecap="round"/>
+  </svg>
+</div>
     <div class="flight-cloud cloud-right">☁</div>
     <div class="flight-decoration deco-left">✦</div>
     <div class="flight-decoration deco-right">✦</div>
@@ -411,7 +449,16 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
     <div class="flight-duration-bubble">飛行時間<br>約 3 小時 25 分</div>
 
     <div class="flight-cloud cloud-left">☁</div>
-    <div class="flight-cloud cloud-right">☁</div>
+    <div class="flight-cloud cloud-right">
+  <svg viewBox="0 0 100 65" aria-hidden="true">
+    <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
+      fill="#F7FCFC" stroke="#789BA9" stroke-width="4"
+      stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M24 47 Q36 55 49 47 Q64 56 77 47"
+      fill="none" stroke="#A9CFD8" stroke-width="3"
+      stroke-linecap="round"/>
+  </svg>
+</div>
     <div class="flight-decoration deco-left">✦</div>
     <div class="flight-decoration deco-right">✦</div>
 
