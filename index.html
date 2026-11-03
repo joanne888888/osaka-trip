@@ -1087,6 +1087,46 @@ footer {
   margin: 18px 0;
   min-height: 190px;
 }
+   /* ===== 航班文字：手帳手寫感 ===== */
+
+.flight-point strong {
+  font-family: "Huninn", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1.5px;
+  transform: rotate(-2deg);
+  text-shadow:
+    1px 1px 0 #FFF7F1,
+    -0.5px 0.5px 0 rgba(89,70,61,.18);
+}
+
+.flight-point:nth-child(3) strong {
+  transform: rotate(1.5deg);
+}
+
+.flight-point span {
+  font-family: "Huninn", sans-serif;
+  letter-spacing: 1px;
+  transform: rotate(-1deg);
+}
+
+.flight-date-tag {
+  font-family: "Huninn", sans-serif;
+  letter-spacing: 2px;
+  transform: rotate(-5deg);
+  box-shadow:
+    3px 4px 0 rgba(220,145,125,.13),
+    1px 1px 0 rgba(255,255,255,.5);
+}
+
+.return .flight-date-tag {
+  transform: rotate(4deg);
+}
+
+.flight-duration-bubble {
+  font-family: "Huninn", sans-serif;
+  letter-spacing: 1px;
+}
+   
 </style>
 
 </head>
