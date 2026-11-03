@@ -62,14 +62,33 @@ button { cursor: pointer; }
 .quick-nav a {
   display: inline-block;
   padding: 9px 19px;
-  background: #F5DDD5;
+  background: transparent;
   color: var(--ink);
-  border: 2px solid var(--ink);
-  border-radius: 42% 48% 44% 50% / 48% 45% 52% 48%;
+  border: none;
+  border-radius: 0;
   text-decoration: none;
-  font-size: 15px;
-  box-shadow: 2px 3px 0 rgba(62,58,57,.12);
+  font-size: 16px;
+  box-shadow: none;
   transition: .2s;
+  position: relative;
+}
+
+.quick-nav a::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 3px;
+  height: 7px;
+  background: #F5DDD5;
+  border-radius: 50% 35% 45% 30%;
+  transform: rotate(-2deg);
+  z-index: -1;
+}
+
+.quick-nav a:hover {
+  color: #D97968;
+  transform: translateY(-2px);
 }
 
 .quick-nav a:hover {
