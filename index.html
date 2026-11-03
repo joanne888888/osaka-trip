@@ -257,7 +257,58 @@ html {
   color: #F3C05F;
 }
 
+/* 日系手繪塗鴉加強 */
+.flight-illustration {
+  border-radius: 58px 42px 55px 48px / 48px 58px 43px 55px;
+  box-shadow:
+    2px 3px 0 rgba(220, 150, 130, 0.12),
+    inset 0 0 0 2px rgba(255,255,255,0.35);
+}
 
+.flight-illustration.outbound {
+  border-color: #F5B9AD;
+}
+
+.flight-illustration.return {
+  border-color: #F4CD83;
+}
+
+.flight-date-tag {
+  box-shadow: 3px 4px 0 rgba(220, 145, 125, 0.15);
+}
+
+.flight-duration-bubble {
+  box-shadow: 2px 3px 0 rgba(220, 145, 125, 0.12);
+}
+
+.flight-cloud {
+  filter: drop-shadow(1px 2px 0 rgba(100, 140, 150, 0.12));
+}
+
+.flight-decoration {
+  font-size: 30px;
+  text-shadow:
+    1px 2px 0 #F3C778,
+    -1px 0 0 #FFF0D0;
+}
+
+.flight-illustration::after {
+  content: "✧  ·  〰  ·  ✦";
+  position: absolute;
+  right: 7%;
+  bottom: 12px;
+  z-index: 2;
+  color: #E9A18F;
+  font-size: 19px;
+  letter-spacing: 5px;
+  transform: rotate(-7deg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.flight-point strong {
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+}
 /* 手機版航班卡片 */
 @media (max-width: 600px) {
   .flight-info {
