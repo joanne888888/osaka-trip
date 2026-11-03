@@ -38,6 +38,7 @@ html {
   scroll-behavior: smooth;
 }
 
+
 /* 日系手繪航班資訊 */
 .flight-info {
   width: calc(100% - 32px);
@@ -48,23 +49,34 @@ html {
 
 .flight-illustration {
   position: relative;
-  min-height: 190px;
+  min-height: 205px;
   margin: 30px 0;
   padding: 24px 28px 18px;
-  border: 4px solid #F4C9BD;
-  border-radius: 65px 48px 55px 45px / 45px 60px 42px 55px;
+  border: 4px solid #F6BDB5;
+  border-radius: 58px 48px 55px 45px / 42px 55px 45px 52px;
   background: #FFF8F2;
   overflow: hidden;
   box-sizing: border-box;
 }
 
+/* 手繪感內框 */
+.flight-illustration::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1.5px dashed rgba(231, 151, 137, 0.28);
+  border-radius: 52px 45px 50px 40px / 38px 50px 40px 48px;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .flight-illustration.outbound {
-  border-color: #F6C9BD;
+  border-color: #F6BDB5;
   background: #FFF7F1;
 }
 
 .flight-illustration.return {
-  border-color: #F5D79D;
+  border-color: #F5CF82;
   background: #FFFAEF;
 }
 
@@ -74,17 +86,19 @@ html {
   left: 6%;
   z-index: 3;
   padding: 9px 27px;
-  border-radius: 30px 25px 28px 20px;
+  border-radius: 28px 24px 30px 22px;
   background: #F58F80;
   color: white;
   font-size: 22px;
   font-weight: bold;
-  transform: rotate(-3deg);
+  transform: rotate(-4deg);
+  box-shadow: 2px 2px 0 rgba(231, 126, 112, 0.18);
 }
 
 .return .flight-date-tag {
   background: #F6CC83;
   color: #59483F;
+  box-shadow: 2px 2px 0 rgba(225, 174, 83, 0.2);
 }
 
 .flight-duration-bubble {
@@ -92,22 +106,23 @@ html {
   top: 5px;
   left: 50%;
   z-index: 3;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(-2deg);
   padding: 9px 22px;
-  border: 3px solid #F0B9A9;
-  border-radius: 50%;
-  background: #FCE0D5;
+  border: 2.5px dashed #F0AFA0;
+  border-radius: 48% 52% 46% 54% / 48% 45% 55% 52%;
+  background: #FFF8EE;
   color: #624D43;
   font-size: 16px;
   font-weight: bold;
   line-height: 1.35;
   text-align: center;
   white-space: nowrap;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
 .return .flight-duration-bubble {
-  border-color: #EFC77F;
-  background: #FFE7B8;
+  border-color: #EFBF62;
+  background: #FFF7E7;
 }
 
 .flight-content {
@@ -116,7 +131,7 @@ html {
   display: grid;
   grid-template-columns: 1fr 1.15fr 1fr;
   align-items: center;
-  min-height: 145px;
+  min-height: 155px;
   padding-top: 32px;
   text-align: center;
 }
@@ -125,13 +140,31 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   color: #59463D;
 }
 
 .flight-point strong {
+  position: relative;
+  display: inline-block;
   font-size: 38px;
   font-weight: bold;
+  z-index: 1;
+}
+
+/* 時間下方的黃色手繪底線 */
+.flight-point strong::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: 2px;
+  height: 9px;
+  background: #FFE18A;
+  border-radius: 50%;
+  transform: rotate(-2deg);
+  z-index: -1;
+  opacity: 0.85;
 }
 
 .flight-point span {
@@ -152,13 +185,12 @@ html {
   overflow: visible;
 }
 
-   
 .flight-cloud {
   position: absolute;
   z-index: 1;
   width: 72px;
   height: 48px;
-  opacity: 0.95;
+  opacity: 0.98;
   transform: rotate(-5deg);
 }
 
@@ -175,16 +207,18 @@ html {
 
 .cloud-left {
   top: 35px;
-  left: 32%;
+  left: 27%;
 }
 
 .cloud-right {
   top: 48px;
-  right: 28%;
+  right: 27%;
 }
 
+/* 星星與手繪裝飾 */
 .flight-decoration {
   position: absolute;
+  z-index: 2;
   color: #F6C46F;
   font-size: 27px;
   text-shadow:
@@ -206,18 +240,23 @@ html {
   color: #F5AFA0;
 }
 
-.deco-left {
-  top: 15px;
-  left: 18px;
-  transform: rotate(-15deg);
+/* 左右兩側的塗鴉短線 */
+.flight-illustration::after {
+  content: "〃";
+  position: absolute;
+  top: 25px;
+  right: 8%;
+  color: #F58F80;
+  font-size: 30px;
+  font-weight: bold;
+  transform: rotate(35deg);
+  pointer-events: none;
 }
 
-.deco-right {
-  top: 14px;
-  right: 22px;
-  transform: rotate(20deg);
-  color: #F5AFA0;
+.flight-illustration.return::after {
+  color: #F3C05F;
 }
+
 
 /* 手機版航班卡片 */
 @media (max-width: 600px) {
