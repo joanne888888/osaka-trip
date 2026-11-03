@@ -476,30 +476,26 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
 </nav>
  
 <section id="flights" class="flight-info">
+
+  <!-- 去程 -->
   <div class="flight-illustration outbound">
     <div class="flight-date-tag">去程 1/7</div>
     <div class="flight-duration-bubble">飛行時間<br>約 2 小時 30 分</div>
 
     <div class="flight-cloud cloud-left">
-  <svg viewBox="0 0 100 65" aria-hidden="true">
-    <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
-      fill="#F7FCFC" stroke="#789BA9" stroke-width="4"
-      stroke-linejoin="round" stroke-linecap="round"/>
-    <path d="M24 47 Q36 55 49 47 Q64 56 77 47"
-      fill="none" stroke="#A9CFD8" stroke-width="3"
-      stroke-linecap="round"/>
-  </svg>
-</div>
-   <div class="flight-cloud cloud-right">
-  <svg viewBox="0 0 100 65" aria-hidden="true">
-    <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
-      fill="#F7FCFC" stroke="#789BA9" stroke-width="4"
-      stroke-linejoin="round" stroke-linecap="round"/>
-    <path d="M24 47 Q36 55 49 47 Q64 56 77 47"
-      fill="none" stroke="#A9CFD8" stroke-width="3"
-      stroke-linecap="round"/>
-  </svg>
-</div>
+      <svg viewBox="0 0 100 65">
+        <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
+          fill="#F7FCFC" stroke="#789BA9" stroke-width="4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="flight-cloud cloud-right">
+      <svg viewBox="0 0 100 65">
+        <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
+          fill="#F7FCFC" stroke="#789BA9" stroke-width="4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
     <div class="flight-decoration deco-left">✦</div>
     <div class="flight-decoration deco-right">✦</div>
 
@@ -510,93 +506,42 @@ footer { text-align: center; border-top: 2px dashed #D8CABB; padding: 28px 0 40p
       </div>
 
       <div class="flight-art">
-        <svg viewBox="0 0 240 120" role="img" aria-label="手繪飛機">
-          <defs>
-  <filter id="crayonOutbound">
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.035"
-      numOctaves="2"
-      seed="8"
-      result="noise"/>
-    <feDisplacementMap
-      in="SourceGraphic"
-      in2="noise"
-      scale="1.2"
-      xChannelSelector="R"
-      yChannelSelector="G"/>
-  </filter>
-</defs>
-          <path d="M8 90 Q55 48 100 75 T230 42"
-                fill="none" stroke="#F2A99A" stroke-width="4"
-                stroke-dasharray="9 9" stroke-linecap="round"/>
-      
-<g transform="translate(120 58) rotate(-15)" filter="url(#crayonOutbound)">
-  <!-- 上方機翼 -->
-  <path d="M-15 -7 L12 -45 Q17 -51 24 -47
-           L12 -5 Z"
-fill="#F5B8A7"
-stroke="#76594F"
-stroke-width="3.5"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.95"/>
+        <svg viewBox="0 0 240 120" aria-label="去程手繪飛機">
+          <!-- 粉色飛行軌跡 -->
+          <path d="M12 83 Q42 43 77 65 Q112 83 145 48 Q177 20 218 25"
+            fill="none" stroke="#F28F83" stroke-width="4"
+            stroke-dasharray="10 10" stroke-linecap="round"/>
 
-  <!-- 下方機翼 -->
-  <path d="M-12 6 L12 43 Q17 49 23 43
-           L12 5 Z"
-fill="#F5B8A7"
-stroke="#76594F"
-stroke-width="3.5"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.95"/>
+          <!-- 飛機 -->
+          <g transform="translate(120 60) rotate(-15) scale(.78)">
+            <path d="M-15 -7 L12 -45 Q17 -51 24 -47 L12 -5Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"
+              stroke-linejoin="round"/>
+            <path d="M-12 6 L12 43 Q17 49 23 43 L12 5Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"
+              stroke-linejoin="round"/>
 
-  <!-- 尾翼 -->
-  <path d="M-59 -5 L-79 -24 Q-84 -28 -86 -23
-           L-72 -2 L-59 0 Z"
-        fill="#F5B8A7" stroke="#76594F"
-        stroke-width="3" stroke-linejoin="round"/>
-  <path d="M-59 5 L-79 24 Q-84 28 -86 23
-           L-72 2 L-59 0 Z"
-        fill="#F5B8A7" stroke="#76594F"
-        stroke-width="3" stroke-linejoin="round"/>
+            <path d="M-59 -5 L-79 -24 Q-84 -28 -86 -23 L-72 -2 L-59 0Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"/>
+            <path d="M-59 5 L-79 24 Q-84 28 -86 23 L-72 2 L-59 0Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"/>
 
-  <!-- 飛機機身 -->
-  <path d="M-88 0
-           Q-86 -8 -65 -9
-           L54 -9
-           Q78 -9 91 -2
-           Q98 0 91 3
-           Q78 9 54 9
-           L-65 9
-           Q-86 8 -88 0Z"
-fill="#FFFCF6"
-stroke="#76594F"
-stroke-width="4"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.98"/>
+            <path d="M-88 0 Q-86 -8 -65 -9 L54 -9 Q78 -9 91 -2 Q98 0 91 3 Q78 9 54 9 L-65 9 Q-86 8 -88 0Z"
+              fill="#FFFCF6" stroke="#76594F" stroke-width="4"
+              stroke-linejoin="round"/>
 
-  <!-- 駕駛艙 -->
-  <path d="M66 -7 Q79 -6 87 -2
-           Q91 0 87 3 L69 3Z"
-fill="#A8CEDC"
-stroke="#76594F"
-stroke-width="2.5"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.95"/>
+            <path d="M66 -7 Q79 -6 87 -2 Q91 0 87 3 L69 3Z"
+              fill="#A8CEDC" stroke="#76594F" stroke-width="2.5"/>
 
-  <!-- 機窗 -->
-  <circle cx="49" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="35" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="21" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="7" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="-7" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="-21" cy="-2" r="3.2" fill="#75B6CF"/>
-</g>
-
+            <g fill="#75B6CF">
+              <circle cx="49" cy="-2" r="3.5"/>
+              <circle cx="35" cy="-2" r="3.5"/>
+              <circle cx="21" cy="-2" r="3.5"/>
+              <circle cx="7" cy="-2" r="3.5"/>
+              <circle cx="-7" cy="-2" r="3.5"/>
+              <circle cx="-21" cy="-2" r="3.5"/>
+            </g>
+          </g>
         </svg>
       </div>
 
@@ -607,30 +552,25 @@ opacity="0.95"/>
     </div>
   </div>
 
+  <!-- 回程 -->
   <div class="flight-illustration return">
     <div class="flight-date-tag">回程 1/12</div>
     <div class="flight-duration-bubble">飛行時間<br>約 3 小時 25 分</div>
 
+    <div class="flight-cloud cloud-left">
+      <svg viewBox="0 0 100 65">
+        <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
+          fill="#F7FCFC" stroke="#789BA9" stroke-width="4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
     <div class="flight-cloud cloud-right">
-  <svg viewBox="0 0 100 65" aria-hidden="true">
-    <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
-      fill="#F7FCFC" stroke="#789BA9" stroke-width="4"
-      stroke-linejoin="round" stroke-linecap="round"/>
-    <path d="M24 47 Q36 55 49 47 Q64 56 77 47"
-      fill="none" stroke="#A9CFD8" stroke-width="3"
-      stroke-linecap="round"/>
-  </svg>
-</div>
-    <div class="flight-cloud cloud-right">
-  <svg viewBox="0 0 100 65" aria-hidden="true">
-    <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
-      fill="#F7FCFC" stroke="#789BA9" stroke-width="4"
-      stroke-linejoin="round" stroke-linecap="round"/>
-    <path d="M24 47 Q36 55 49 47 Q64 56 77 47"
-      fill="none" stroke="#A9CFD8" stroke-width="3"
-      stroke-linecap="round"/>
-  </svg>
-</div>
+      <svg viewBox="0 0 100 65">
+        <path d="M18 48 C4 48 3 30 16 25 C18 12 36 8 45 20 C55 4 77 13 77 29 C96 27 99 49 82 52 L18 52Z"
+          fill="#F7FCFC" stroke="#789BA9" stroke-width="4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
     <div class="flight-decoration deco-left">✦</div>
     <div class="flight-decoration deco-right">✦</div>
 
@@ -641,102 +581,42 @@ opacity="0.95"/>
       </div>
 
       <div class="flight-art">
-  <svg viewBox="0 0 240 116" aria-label="手繪飛機">
-    <defs>
-  <filter id="crayonReturn">
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.035"
-      numOctaves="2"
-      seed="8"
-      result="noise"/>
-    <feDisplacementMap
-      in="SourceGraphic"
-      in2="noise"
-      scale="1.2"
-      xChannelSelector="R"
-      yChannelSelector="G"/>
-  </filter>
-</defs>
-      <!-- 回程飛行虛線 -->
+        <svg viewBox="0 0 240 120" aria-label="回程手繪飛機">
+          <!-- 山吹黃色飛行軌跡：先畫在飛機後面 -->
+          <path d="M12 83 Q42 43 77 65 Q112 83 145 48 Q177 20 218 25"
+            fill="none" stroke="#F2B82F" stroke-width="4"
+            stroke-dasharray="11 10" stroke-linecap="round"/>
 
-<g transform="translate(120 58) rotate(-15)" filter="url(#crayonReturn)">
-  <!-- 上方機翼 -->
-  <path d="M-15 -7 L12 -45 Q17 -51 24 -47
-           L12 -5 Z"
-fill="#F5B8A7"
-stroke="#76594F"
-stroke-width="3.5"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.95"/>
+          <!-- 飛機 -->
+          <g transform="translate(120 60) rotate(-15) scale(.78)">
+            <path d="M-15 -7 L12 -45 Q17 -51 24 -47 L12 -5Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"
+              stroke-linejoin="round"/>
+            <path d="M-12 6 L12 43 Q17 49 23 43 L12 5Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"
+              stroke-linejoin="round"/>
 
-  <!-- 下方機翼 -->
-  <path d="M-12 6 L12 43 Q17 49 23 43
-           L12 5 Z"
-fill="#F5B8A7"
-stroke="#76594F"
-stroke-width="3.5"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.95"/>
+            <path d="M-59 -5 L-79 -24 Q-84 -28 -86 -23 L-72 -2 L-59 0Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"/>
+            <path d="M-59 5 L-79 24 Q-84 28 -86 23 L-72 2 L-59 0Z"
+              fill="#F5B8A7" stroke="#76594F" stroke-width="3.5"/>
 
-  <!-- 尾翼 -->
-  <path d="M-59 -5 L-79 -24 Q-84 -28 -86 -23
-           L-72 -2 L-59 0 Z"
-        fill="#F5B8A7" stroke="#76594F"
-        stroke-width="3" stroke-linejoin="round"/>
-  <path d="M-59 5 L-79 24 Q-84 28 -86 23
-           L-72 2 L-59 0 Z"
-        fill="#F5B8A7" stroke="#76594F"
-        stroke-width="3" stroke-linejoin="round"/>
+            <path d="M-88 0 Q-86 -8 -65 -9 L54 -9 Q78 -9 91 -2 Q98 0 91 3 Q78 9 54 9 L-65 9 Q-86 8 -88 0Z"
+              fill="#FFFCF6" stroke="#76594F" stroke-width="4"
+              stroke-linejoin="round"/>
 
-  <!-- 飛機機身 -->
-  <path d="M-88 0
-           Q-86 -8 -65 -9
-           L54 -9
-           Q78 -9 91 -2
-           Q98 0 91 3
-           Q78 9 54 9
-           L-65 9
-           Q-86 8 -88 0Z"
-fill="#FFFCF6"
-stroke="#76594F"
-stroke-width="4"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.98"/>
+            <path d="M66 -7 Q79 -6 87 -2 Q91 0 87 3 L69 3Z"
+              fill="#A8CEDC" stroke="#76594F" stroke-width="2.5"/>
 
-  <!-- 駕駛艙 -->
-  <path d="M66 -7 Q79 -6 87 -2
-           Q91 0 87 3 L69 3Z"
-fill="#A8CEDC"
-stroke="#76594F"
-stroke-width="2.5"
-stroke-linejoin="round"
-stroke-linecap="round"
-opacity="0.95"/>
-
-  <!-- 機窗 -->
-  <circle cx="49" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="35" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="21" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="7" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="-7" cy="-2" r="3.2" fill="#75B6CF"/>
-  <circle cx="-21" cy="-2" r="3.2" fill="#75B6CF"/>
-</g>
-<!-- 回程黃色手繪飛行軌跡 -->
-<path d="M 12 82
-         Q 35 58 60 65
-         Q 78 70 95 55
-         Q 120 35 150 40
-         Q 180 45 210 22"
-      fill="none"
-      stroke="#F2B82F"
-      stroke-width="4"
-      stroke-dasharray="11 10"
-      stroke-linecap="round"
-      opacity="0.95"/>
+            <g fill="#75B6CF">
+              <circle cx="49" cy="-2" r="3.5"/>
+              <circle cx="35" cy="-2" r="3.5"/>
+              <circle cx="21" cy="-2" r="3.5"/>
+              <circle cx="7" cy="-2" r="3.5"/>
+              <circle cx="-7" cy="-2" r="3.5"/>
+              <circle cx="-21" cy="-2" r="3.5"/>
+            </g>
+          </g>
         </svg>
       </div>
 
@@ -747,7 +627,6 @@ opacity="0.95"/>
     </div>
   </div>
 </section>
-
   <section class="hero">
     <div class="eyebrow">OUR LITTLE JAPAN ADVENTURE</div>
     <h1>關西慢慢走，<br><span>把美好收藏。</span></h1>
