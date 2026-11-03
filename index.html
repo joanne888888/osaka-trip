@@ -696,6 +696,94 @@ footer {
 
   .tip { margin: 0 16px 15px; }
 }
+   
+/* =========================
+   第二輪：加強手繪手帳感
+========================= */
+
+/* 航班卡片：增加不規則的雙層手繪描邊 */
+.flight-illustration {
+  border-radius: 5% 4% 6% 4% / 14% 17% 13% 16%;
+  box-shadow:
+    3px 3px 0 rgba(220,145,125,.15),
+    -2px -1px 0 rgba(220,145,125,.10),
+    5px 6px 0 rgba(220,145,125,.07);
+}
+
+/* 第二層略微錯位的手繪線 */
+.flight-illustration::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(231,151,137,.22);
+  border-radius: 6% 4% 5% 6% / 15% 13% 17% 14%;
+  transform: rotate(.25deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 日期標籤：像手繪貼紙 */
+.flight-date-tag {
+  border-radius: 19px 27px 21px 24px;
+  box-shadow:
+    3px 4px 0 rgba(220,145,125,.16),
+    -1px 1px 0 rgba(220,145,125,.12);
+  letter-spacing: 1px;
+}
+
+/* 時間文字：增加手寫感 */
+.flight-point strong {
+  letter-spacing: 1px;
+  -webkit-text-stroke: .35px currentColor;
+}
+
+/* 航班地點文字 */
+.flight-point span {
+  letter-spacing: .5px;
+}
+
+/* 時間底線：不規則蠟筆感 */
+.flight-point strong::after {
+  height: 10px;
+  border-radius: 43% 57% 48% 52%;
+  transform: rotate(-3deg) skewX(-12deg);
+}
+
+/* 日期標籤、飛行時間小幅錯位 */
+.flight-duration-bubble {
+  border-radius: 47% 53% 44% 56% / 53% 44% 56% 47%;
+}
+
+/* 行程卡片：手繪感 */
+.day-panel {
+  border-radius: 22px 27px 20px 25px;
+  box-shadow:
+    3px 4px 0 rgba(62,58,57,.09),
+    -1px -1px 0 rgba(62,58,57,.06);
+}
+
+/* 行程分隔線更像手帳縫線 */
+.stop {
+  border-bottom-style: dashed;
+  border-bottom-width: 2px;
+}
+
+/* 提示框像手繪便利貼 */
+.tip {
+  transform: rotate(-.4deg);
+}
+
+/* 手機版避免裝飾線影響內容 */
+@media (max-width: 600px) {
+  .flight-illustration::after {
+    inset: 2px;
+  }
+
+  .flight-point strong::after {
+    height: 6px;
+  }
+}
+
 </style>
 
 </head>
