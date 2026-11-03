@@ -932,6 +932,97 @@ footer {
   }
 }
 
+/* 第四輪：每日行程加強手繪感 */
+
+/* 行程卡片雙層手繪框 */
+.day-panel {
+  position: relative;
+  border: 2px solid #6B554A;
+  border-radius: 25px 30px 23px 27px;
+  box-shadow: 4px 5px 0 rgba(107,85,74,.12);
+}
+
+.day-panel::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1.5px dashed rgba(141,119,104,.28);
+  border-radius: 20px 25px 18px 23px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 標題區 */
+.day-head {
+  background: #F5DDD5;
+  border-bottom: 2px dashed #C9AFA0;
+  position: relative;
+}
+
+.day-head h2 {
+  text-shadow: 1px 1px 0 rgba(255,255,255,.7);
+}
+
+/* 景點時間標籤 */
+.time {
+  background: #FCE6DC;
+  border: 1px dashed #E6A18F;
+  border-radius: 10px 14px 9px 12px;
+  padding: 2px 9px;
+  transform: rotate(-2deg);
+}
+
+/* 景點名稱蠟筆底線 */
+.stop h3 {
+  display: inline;
+  background: linear-gradient(
+    transparent 68%,
+    rgba(245,212,122,.65) 68%,
+    rgba(245,212,122,.65) 94%,
+    transparent 94%
+  );
+  padding: 0 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* 景點路線分隔 */
+.stop {
+  position: relative;
+  border-bottom: 2px dashed #E5D2C2;
+}
+
+/* 導航按鈕 */
+.stop a {
+  display: inline-block;
+  border: 1px dashed #E4B5A7;
+  border-radius: 18px 14px 17px 13px;
+  background: #FBE9E2;
+  padding: 5px 12px;
+}
+
+/* 提示便利貼 */
+.tip {
+  background: #FFF2D5;
+  border: 2px dashed #E4BE75;
+  transform: rotate(-.3deg);
+}
+
+/* 手機版 */
+@media (max-width: 600px) {
+  .day-panel::before {
+    inset: 4px;
+  }
+
+  .day-head {
+    padding: 15px 18px;
+  }
+
+  .stop h3 {
+    font-size: 17px;
+  }
+}
+
 </style>
 
 </head>
