@@ -784,6 +784,154 @@ footer {
   }
 }
 
+/* =========================
+   第三輪：每日行程手帳風
+========================= */
+
+/* DAY 按鈕：手繪紙膠帶 */
+.day-tabs {
+  gap: 11px;
+}
+
+.day-btn {
+  position: relative;
+  border: 2px solid #554A43;
+  border-radius: 17px 22px 16px 20px;
+  background: #FFFEFA;
+  box-shadow: 3px 4px 0 rgba(85,74,67,.13);
+  transform: rotate(-1deg);
+  transition: .2s;
+}
+
+.day-btn:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.day-btn:nth-child(3n) {
+  transform: rotate(-.5deg);
+}
+
+.day-btn:hover {
+  background: #FFF1D0;
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+.day-btn.active {
+  background: #EFC45D;
+  box-shadow: 3px 4px 0 #554A43;
+  transform: translateY(-2px) rotate(-1deg);
+}
+
+/* 行程卡片：雙層手繪外框 */
+.day-panel {
+  border: 2.5px solid #554A43;
+  border-radius: 23px 27px 21px 25px;
+  box-shadow:
+    3px 4px 0 rgba(85,74,67,.12),
+    -1px -1px 0 rgba(85,74,67,.06);
+}
+
+/* 標題區：像手帳色紙 */
+.day-head {
+  position: relative;
+  padding: 19px 24px;
+  border-bottom: 2px dashed #CDB8A6;
+  background:
+    linear-gradient(110deg, #F5DDD5 0%, #F8E4DA 100%);
+}
+
+.day-head h2 {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transform: rotate(-1deg);
+}
+
+.day-head h2::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -8px;
+  bottom: 1px;
+  height: 9px;
+  background: rgba(239,196,93,.55);
+  border-radius: 50% 40% 55% 45%;
+  z-index: -1;
+}
+
+/* 景點時間：手繪小標籤 */
+.time {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  padding: 2px 9px;
+  border-radius: 12px 15px 11px 14px;
+  background: #FFF0E7;
+  color: #D97968;
+  transform: rotate(-2deg);
+}
+
+/* 景點名稱：蠟筆底線 */
+.stop h3 {
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+}
+
+.stop h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -5px;
+  bottom: 1px;
+  height: 7px;
+  background: rgba(245,212,122,.5);
+  border-radius: 45% 55% 40% 60%;
+  transform: rotate(-1deg);
+  z-index: -1;
+}
+
+/* 行程分隔線 */
+.stop {
+  padding: 12px 0;
+  border-bottom: 2px dashed #E7D5C5;
+}
+
+/* Google Maps 導航按鈕 */
+.stop a {
+  border-radius: 20px 16px 19px 15px;
+  box-shadow: 2px 3px 0 rgba(217,121,104,.12);
+}
+
+/* 提示框 */
+.tip {
+  border-radius: 16px 22px 17px 20px;
+  box-shadow: 2px 3px 0 rgba(229,189,107,.15);
+}
+
+/* 手機版微調 */
+@media (max-width: 600px) {
+  .day-tabs {
+    gap: 8px;
+  }
+
+  .day-btn {
+    padding: 8px 3px;
+  }
+
+  .day-head {
+    padding: 15px 18px;
+  }
+
+  .route {
+    padding: 9px 16px;
+  }
+
+  .stop {
+    padding: 10px 0;
+  }
+}
+
 </style>
 
 </head>
