@@ -7,7 +7,7 @@
 <title>大阪日和｜六天五夜旅行繪本</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Huninn&family=Yomogi&family=Caveat:wght@500;600;700&display=swap');
 
 /* =========================
    全站色彩與基本設定
@@ -1126,7 +1126,226 @@ footer {
   font-family: "Huninn", sans-serif;
   letter-spacing: 1px;
 }
-   
+ 
+/* =================================
+   日系手帳塗鴉風｜全站統一改造
+================================= */
+
+/* 全站字體 */
+body {
+  font-family: "Yomogi", "Huninn", "Microsoft JhengHei", sans-serif;
+  background-color: #FFFCF6;
+  background-image: radial-gradient(#EADFD2 0.8px, transparent 0.8px);
+  background-size: 16px 16px;
+}
+
+/* 標題手寫感 */
+h1, h2, h3,
+.logo,
+.section-title,
+.day-head h2 {
+  font-family: "Yomogi", "Huninn", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* 頁面內容縮小空白 */
+.wrap {
+  max-width: 1120px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.hero {
+  padding: 24px 0 15px;
+}
+
+.section-title {
+  margin: 24px 0 12px;
+}
+
+/* 航班區塊 */
+.flight-info {
+  max-width: 1120px;
+  margin: 14px auto;
+}
+
+.flight-illustration {
+  min-height: 180px;
+  margin: 14px 0;
+  border-radius: 7% 5% 6% 4% / 9% 7% 8% 6%;
+  transform: rotate(-0.25deg);
+}
+
+.flight-illustration.return {
+  transform: rotate(0.25deg);
+}
+
+.flight-illustration::before {
+  inset: 7px;
+  border-radius: 6% 4% 7% 5% / 7% 8% 5% 6%;
+  border: 2px dashed rgba(231,151,137,.48);
+}
+
+.flight-illustration::after {
+  border-radius: 7% 5% 6% 4% / 9% 7% 8% 6%;
+  border-width: 3px;
+}
+
+.flight-point strong {
+  font-family: "Caveat", "Huninn", sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transform: rotate(-2deg);
+}
+
+.flight-point span {
+  font-family: "Yomogi", "Huninn", sans-serif;
+  font-size: 18px;
+}
+
+.flight-date-tag {
+  font-family: "Yomogi", "Huninn", sans-serif;
+  border-radius: 35% 25% 32% 24% / 30% 35% 25% 32%;
+  letter-spacing: 2px;
+}
+
+.flight-duration-bubble {
+  font-family: "Yomogi", "Huninn", sans-serif;
+  border-radius: 47% 53% 49% 51% / 52% 45% 55% 48%;
+}
+
+/* 航班卡片的裝飾 */
+.flight-cloud {
+  filter: drop-shadow(2px 3px 0 rgba(100,140,150,.16));
+}
+
+.flight-decoration {
+  text-shadow:
+    1px 1px 0 #F3C778,
+    2px 2px 0 rgba(255,255,255,.8);
+}
+
+/* 快速選單：手帳貼紙 */
+.quick-nav a,
+.pill,
+.nav-btn {
+  font-family: "Yomogi", "Huninn", sans-serif;
+  border: 2px solid #594D45;
+  border-radius: 35% 28% 32% 25% / 30% 35% 25% 32%;
+  box-shadow: 2px 3px 0 rgba(89,77,69,.13);
+  transform: rotate(-1deg);
+}
+
+.quick-nav a:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.quick-nav a:hover {
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+/* 每日行程按鈕 */
+.day-tabs {
+  gap: 10px;
+}
+
+.day-btn {
+  font-family: "Yomogi", "Huninn", sans-serif;
+  border: 2px solid #594D45;
+  border-radius: 20px 25px 18px 22px;
+  box-shadow: 2px 3px 0 rgba(89,77,69,.13);
+  transform: rotate(-0.5deg);
+}
+
+.day-btn:nth-child(even) {
+  transform: rotate(0.5deg);
+}
+
+.day-btn.active {
+  background: #F2C65E;
+  box-shadow: 3px 4px 0 #594D45;
+}
+
+/* 每日行程大卡片 */
+.day-panel {
+  border: 2.5px solid #594D45;
+  border-radius: 23px 19px 25px 20px;
+  box-shadow: 3px 4px 0 rgba(89,77,69,.12);
+  overflow: hidden;
+}
+
+.day-head {
+  background-color: #F5DDD5;
+  background-image: radial-gradient(
+    rgba(255,255,255,.5) 1px,
+    transparent 1px
+  );
+  background-size: 12px 12px;
+  border-bottom: 2px dashed #D8BFB0;
+}
+
+.day-head h2 {
+  font-size: 30px;
+}
+
+/* 行程分隔線 */
+.stop {
+  border-bottom: 2px dashed #E5CDBB;
+  padding: 16px 0;
+}
+
+.time {
+  font-family: "Caveat", "Huninn", sans-serif;
+  font-size: 19px;
+}
+
+.stop h3 {
+  font-family: "Yomogi", "Huninn", sans-serif;
+  font-size: 20px;
+}
+
+/* 小提醒：便條紙感 */
+.tip,
+.note {
+  border-radius: 12px 18px 13px 16px;
+  box-shadow: 2px 3px 0 rgba(89,77,69,.08);
+  transform: rotate(-0.3deg);
+}
+
+/* 底部 */
+footer {
+  letter-spacing: 2px;
+}
+
+/* 手機版微調 */
+@media (max-width: 600px) {
+  .flight-illustration {
+    min-height: 165px;
+    margin: 14px 0;
+  }
+
+  .flight-point strong {
+    font-size: 32px;
+  }
+
+  .flight-point span {
+    font-size: 11px;
+  }
+
+  .day-btn {
+    padding: 10px 3px;
+  }
+
+  .day-head h2 {
+    font-size: 24px;
+  }
+
+  .hero {
+    padding: 20px 0 12px;
+  }
+}
+  
 </style>
 
 </head>
